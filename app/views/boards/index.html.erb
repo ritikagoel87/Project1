@@ -1,0 +1,15 @@
+<h1>Boards</h1>
+
+<% unless @boards.empty? %>
+  <% @boards.each do |board| %>
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag board.image, :alt => board.name, :class => 'thumb' %>
+      </div>
+      <div class="col-md-10">
+        <% path = boards_path + '/' + board.id.to_s %>
+        <%= link_to board.name, path %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

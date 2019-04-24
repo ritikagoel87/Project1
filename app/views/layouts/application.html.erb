@@ -4,6 +4,7 @@
     <title>Project1</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= cloudinary_js_config %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -29,18 +30,24 @@
           <% if @current_user.present? %>
             <% if @current_user.admin? %>
               <li class="nav-item">
-                <a class="nav-link" href='<%= users_path %>'>All Users <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href='<%= users_path %>'>All Users</a>
               </li>
             <% end %>
+            <li class="nav-item">
+              <%= link_to "Boards", boards_path, :class => 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Pins", pins_path, :class => 'nav-link' %>
+            </li>
             <li class="nav-item">
               <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete', :class => 'nav-link' %>
             </li>
           <% else %>
             <li class="nav-item">
-              <a class="nav-link" href='<%= new_user_path %>'>Sign Up <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href='<%= new_user_path %>'>Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='<%= login_path %>'>Sign In <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href='<%= login_path %>'>Sign In</a>
             </li>
           <% end %>
         </ul>

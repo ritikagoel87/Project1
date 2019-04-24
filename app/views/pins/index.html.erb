@@ -1,0 +1,22 @@
+<h1>Pins</h1>
+
+<% unless @pins.empty? %>
+  <div class="row">
+    <% @count = 1 %>
+    <% @pins.each do |pin| %>
+      <% if @count == 6 %>
+      </div>
+      <div class="row">
+        <% @count = 1 %>
+      <% end %>
+      <div class="col-md-3">
+        <% path = pins_path + '/' + pin.id.to_s %>
+        <%= link_to image_tag(pin.image, :alt => pin.title), path %>
+      </div>
+      <% @count += 1 %>
+    <% end %>
+  </div>
+<% end %>
+
+
+<%= link_to "Create Pin", new_pin_path %>

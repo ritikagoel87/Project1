@@ -1,0 +1,5 @@
+<h1><%= @pin.title %></h1>
+
+<% b_path = boards_path + '/' + @board.id.to_s %>
+<p>Board: <%= link_to @board.name, b_path %></p>
+<%= link_to image_tag(@pin.image, :alt => @pin.title), @pin.url, :target => '_blank' %>
