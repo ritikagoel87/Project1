@@ -1,0 +1,22 @@
+<h1><%= @user.fname %> <%= @user.lname %></h1>
+
+<p>DOB: <%= @user.dob %></p>
+<p>EMAIL: <%= @user.email %></p>
+
+<% if @user.boards.present? %>
+  <% @user.boards.each do |board| %>
+    <p>
+    <% path = boards_path + "/" + board.id.to_s %>
+    Name: <%= link_to board.name, path %>
+    <% if board.image.present? %>
+      <%= image_tag board.image, :alt => board.name %>
+    <% end %>
+    </p>
+  <% end %>
+<% end %>
+
+<% if @current_user.present? || @current_user.admin? %>
+<%= link_to "New Board", new_board_path %>
+<%= link_to "Edit Details", edit_user_path %>
+<%= link_to 'Delete User', user_path, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+<% end %>

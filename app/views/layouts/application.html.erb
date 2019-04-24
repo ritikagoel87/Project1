@@ -10,6 +10,42 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <% if @current_user.present? %>
+              <% path = @user_home %>
+            <% else %>
+              <% path = root_path %>
+            <% end %>
+            <a class="nav-link" href='<%= path %>'>Home <span class="sr-only">(current)</span></a>
+          </li>
+          <% if @current_user.present? %>
+            <% if @current_user.admin? %>
+              <li class="nav-item">
+                <a class="nav-link" href='<%= users_path %>'>All Users <span class="sr-only">(current)</span></a>
+              </li>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete', :class => 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link" href='<%= new_user_path %>'>Sign Up <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href='<%= login_path %>'>Sign In <span class="sr-only">(current)</span></a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
