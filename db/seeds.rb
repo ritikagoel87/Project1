@@ -1,7 +1,7 @@
 User.destroy_all
-u1 = User.create :fname => 'Ritika', :lname => 'Goel', :dob => '13/08/1987', :email => 'rg@ga.co', :password_digest => 'chicken', :admin => 'true'
-u2 = User.create :fname => 'Joel', :lname => 'Turnbull', :dob => '01/01/1980', :email => 'jt@ga.co', :password_digest => 'chicken', :admin => 'false'
-u3 = User.create :fname => 'Yianni', :lname => 'Moustakas', :dob => '01/01/1990', :email => 'ym@ga.co', :password_digest => 'chicken', :admin => 'flase'
+u1 = User.create :fname => 'Ritika', :lname => 'Goel', :dob => '13/08/1987', :email => 'rg@ga.co', :password => 'chicken', :admin => 'true'
+u2 = User.create :fname => 'Joel', :lname => 'Turnbull', :dob => '01/01/1980', :email => 'jt@ga.co', :password => 'chicken', :admin => 'false'
+u3 = User.create :fname => 'Yianni', :lname => 'Moustakas', :dob => '01/01/1990', :email => 'ym@ga.co', :password => 'chicken', :admin => 'flase'
 
 Board.destroy_all
 b1 = Board.create :name => 'Apples', :image => 'https://cdn.newsapi.com.au/image/v1/2b74874798de42d5de6e4711150946d3'
