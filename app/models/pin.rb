@@ -12,5 +12,4 @@
 
 class Pin < ApplicationRecord
   has_and_belongs_to_many :boards
-  has_and_belongs_to_many :users, :through => :boards
 end

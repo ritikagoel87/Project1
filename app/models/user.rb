@@ -17,7 +17,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :boards
-  has_and_belongs_to_many :pins, :through => :boards
+  has_many :pins, :through => :boards
   has_many :active_relationships, class_name:  "Follow",
                                   foreign_key: "user_id",
                                   dependent:   :destroy
