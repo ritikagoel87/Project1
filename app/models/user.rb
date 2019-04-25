@@ -5,13 +5,13 @@
 #  id              :bigint(8)        not null, primary key
 #  fname           :text
 #  lname           :text
-#  dob             :integer
 #  email           :text
 #  password_digest :text
 #  admin           :string
 #  boolean         :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  dob             :date
 #
 
 class User < ApplicationRecord

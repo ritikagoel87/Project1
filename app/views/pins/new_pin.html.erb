@@ -1,0 +1,20 @@
+<%= form_tag pins_display_pins_path do %>
+  <%= label_tag :enter_url %>
+  <%= text_field_tag :url %>
+
+  <%= submit_tag "Lookup" %>
+<% end %>
+
+
+<div class="row">
+  <div class="offset-md-5 col-md-2">
+    OR
+  </div>
+</div>
+
+<%= form_tag pins_display_pins_path, :multipart => true do %>
+  <%= label_tag :file %>
+  <%= cl_image_upload_tag :file %>
+
+  <%= submit_tag "Upload" %>
+<% end %>

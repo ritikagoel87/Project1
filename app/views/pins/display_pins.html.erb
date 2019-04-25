@@ -1,0 +1,7 @@
+<% if @page.present? %>
+  <% @page.css('img').each do |i| %>
+    <p><%= link_to image_tag(i.attr('src')), new_pin_path(:url => params[:url], :image => i.attr('src') ) %></p>
+  <% end %>
+<% else %>
+  <p><%= link_to image_tag(@image), new_pin_path(:image => @image ) %></p>
+<% end %>

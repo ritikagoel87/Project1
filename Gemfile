@@ -26,6 +26,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'cloudinary'
+gem 'nokogiri', '~> 1.10', '>= 1.10.3'
+gem 'rest-client'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

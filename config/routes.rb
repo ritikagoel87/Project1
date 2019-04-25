@@ -45,6 +45,9 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/show'
   get 'users/edit'
+  get 'pins/new_pin'
+  post 'pins/display_pins'
+  post 'pins/new'
   root :to => 'pages#index'
   resources :users
   resources :boards

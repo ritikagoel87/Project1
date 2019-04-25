@@ -1,3 +1,26 @@
 <h1>New Pin</h1>
 
-<%= render :partial => 'form' %>
+<%= form_for @pin do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, :autofocus => true, :required => true, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url %>
+    <% if params[:url].present? %>
+      <%= f.text_field :url, :required => true, :class => 'form-control', :value => params[:url] %>
+    <% else %>
+      <%= f.text_field :url, :required => true, :class => 'form-control' %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.text_field :image, :required => true, :class => 'form-control', :value => params[:image] %>
+  </div>
+  <div class="form-group">
+    <%= f.label :board_ids %>
+    <%= f.select :board_ids, Board.where(:user_id => @current_user.id).pluck(:name, :id) %>
+  </div>
+
+  <%= f.submit "Create Pin", :class => 'btn btn-primary btn-lg' %>
+<% end %>

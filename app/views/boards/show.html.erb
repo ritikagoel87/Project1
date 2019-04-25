@@ -11,7 +11,7 @@
 
 <% if @current_user.id == @board.user_id %>
   <%= link_to "Edit Board", edit_board_path %>
-  <%= link_to "Delete Board", board_path, :method => 'delete', :data => { :confirm => "Are you sure you want to delete this board? All the pins in this board would be deleted too!" } %>
+  <%= link_to "Delete Board", board_path, :method => 'delete', :data => { :confirm => "Are you sure you want to delete this board?" } %>
 <% end %>
 
 <% @board.pins.each do |p| %>
@@ -20,5 +20,5 @@
 <% end %>
 
 <% if @current_user.id == @board.user_id %>
-  <%= link_to "Create Pin", new_pin_path %>
+  <%= link_to "Create Pin", pins_new_pin_path %>
 <% end %>

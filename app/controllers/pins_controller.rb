@@ -3,8 +3,21 @@ class PinsController < ApplicationController
     @pins = Pin.joins(boards: :user) ## Too MUCH MAGIC.... ###########################
   end
 
+  def new_pin
+  end
+
   def new
     @pin = Pin.new
+  end
+
+  def display_pins
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @image = req["url"]
+      # redirect_to new_pin_path
+    else
+      @page = Nokogiri::HTML(RestClient.get(params[:url]))
+    end
   end
 
   def create
@@ -37,7 +50,7 @@ class PinsController < ApplicationController
   def destroy
     pin = Pin.find params[:id]
     pin.destroy
-    redirect_to @user_home
+    redirect_to pins_path
   end
 
   private
