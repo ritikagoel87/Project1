@@ -1,5 +1,10 @@
 <div class="d-flex justify-content-center"><h1>Sign In</h1></div>
 
+<div>
+  <% if flash[:error].present? %>
+    <p><%= flash[:error] %></p>
+  <% end %>
+</div>
 <%= form_tag login_path do %>
   <div class="form-row">
     <div class="col-md-5">
