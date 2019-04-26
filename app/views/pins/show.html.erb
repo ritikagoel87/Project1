@@ -1,6 +1,6 @@
 <h1><%= @pin.title %></h1>
 
-<% unless @boards.empty? %>
+<% unless @boards.present? %>
   <% b_path = boards_path + '/' + @board.id.to_s %>
   <div class="row py-2">
     <span class="text-success mx-2">Board: </span>
