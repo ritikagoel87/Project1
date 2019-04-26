@@ -1,12 +1,13 @@
 <h1>Boards</h1>
+<%= link_to "New Board", new_board_path, :class => 'btn btn-primary my-3' %>
 
 <% unless @boards.empty? %>
   <% @boards.each do |board| %>
-    <div class="row">
-    <div class="col-md-4">
-      <% path = boards_path + '/' + board.id.to_s %>
-      <%= link_to board.name, path %>
-    </div>
+    <div class="row my-3">
+      <div class="col-md-4">
+        <% path = boards_path + '/' + board.id.to_s %>
+        <%= link_to board.name, path %>
+      </div>
       <div class="col-md-8">
         <%= image_tag board.image, :alt => board.name, :class => 'feature' %>
       </div>
