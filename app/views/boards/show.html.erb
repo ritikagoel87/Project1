@@ -14,17 +14,17 @@
 </div>
 
 <% unless @board.pins.empty? %>
-  <div class="row">
+  <div class="row my-2">
     <% @count = 1 %>
     <% @board.pins.each do |p| %>
       <% if @count == 5 %>
       </div>
-      <div class="row">
+      <div class="row my-3">
         <% @count = 1 %>
       <% end %>
       <div class="col-md-3">
       <% path = pins_path + '/' + p.id.to_s %>
-      <%= link_to image_tag(p.image, :alt => p.title, :class => 'feature my-3'), path %>
+      <%= link_to image_tag(p.image, :alt => p.title, :class => 'feature'), path %>
     </div>
     <% @count += 1 %>
     <% end %>
