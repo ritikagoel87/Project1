@@ -3,12 +3,12 @@
 <% unless @boards.empty? %>
   <% @boards.each do |board| %>
     <div class="row">
-      <div class="col-md-2">
-        <%= image_tag board.image, :alt => board.name, :class => 'thumb' %>
-      </div>
-      <div class="col-md-10">
-        <% path = boards_path + '/' + board.id.to_s %>
-        <%= link_to board.name, path %>
+    <div class="col-md-4">
+      <% path = boards_path + '/' + board.id.to_s %>
+      <%= link_to board.name, path %>
+    </div>
+      <div class="col-md-8">
+        <%= image_tag board.image, :alt => board.name, :class => 'feature' %>
       </div>
     </div>
   <% end %>

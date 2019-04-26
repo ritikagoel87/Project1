@@ -1,6 +1,10 @@
 <h1>All Users</h1>
+
+
 <% @users.each do |user| %>
   <% name = user.fname + " " + user.lname %>
   <% path = users_path + "/" + user.id.to_s %>
-  <p><%= link_to name, path %></p>
+  <div class="row py-5">
+    <%= link_to name, path %>
+  </div>
 <% end %>
