@@ -1,6 +1,6 @@
 class PinsController < ApplicationController
   def index
-    @pins = Pin.joins(boards: :user) ## Too MUCH MAGIC.... ###########################
+    @pins = Pin.joins(boards: :user).uniq ## Too MUCH MAGIC.... ###########################
   end
 
   def new_pin
