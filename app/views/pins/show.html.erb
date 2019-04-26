@@ -1,10 +1,12 @@
 <h1><%= @pin.title %></h1>
 
-<% b_path = boards_path + '/' + @board.id.to_s %>
-<div class="row py-2">
-  <span class="text-success mx-2">Board: </span>
-  <span><%= link_to @board.name, b_path %></span>
-</div>
+<% unless @boards.empty? %>
+  <% b_path = boards_path + '/' + @board.id.to_s %>
+  <div class="row py-2">
+    <span class="text-success mx-2">Board: </span>
+    <span><%= link_to @board.name, b_path %></span>
+  </div>
+<% end %>
 
 <div class="row">
   <%= link_to image_tag(@pin.image, :alt => @pin.title, :class => 'img-bg'), @pin.url, :target => '_blank' %>
