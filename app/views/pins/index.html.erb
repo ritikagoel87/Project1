@@ -1,12 +1,12 @@
 <h1>Pins</h1>
 
 <% unless @pins.empty? %>
-  <div class="row">
+  <div class="row my-2">
     <% @count = 1 %>
     <% @pins.each do |pin| %>
       <% if @count == 5 %>
       </div>
-      <div class="row">
+      <div class="row my-3">
         <% @count = 1 %>
       <% end %>
       <div class="col-md-3">

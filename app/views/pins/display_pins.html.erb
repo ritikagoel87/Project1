@@ -1,7 +1,25 @@
+<div class="row">
+  <div class="mx-auto">
+    Select a Picture
+  </div>
+</div>
+
 <% if @page.present? %>
+  <div class="row">
+    <% @count = 1 %>
   <% @page.css('img').each do |i| %>
-    <p><%= link_to image_tag(i.attr('src')), new_pin_path(:url => params[:url], :image => i.attr('src') ) %></p>
+    <% if @count == 5 %>
+    </div>
+    <div class="row">
+      <% @count = 1 %>
+    <% end %>
+    <div class="col-md-3">
+      <%= link_to image_tag(i.attr('src'), :class => 'feature my-3'), new_pin_path(:url => params[:url], :image => i.attr('src') ) %>
+    </div>
+    <% @count += 1 %>
   <% end %>
+</div>
 <% else %>
   <p><%= link_to image_tag(@image), new_pin_path(:image => @image ) %></p>
+  </div>
 <% end %>
