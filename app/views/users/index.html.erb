@@ -1,10 +1,20 @@
 <h1>All Users</h1>
 
 
+<div class="row py-5">
+  <div class="col-md-6">
+    <h4 class="alert alert-primary font-weight-bolder d-inline-block">User Name</h4>
+  </div>
+  <div class="col-md-6">
+    <h4 class="alert alert-primary font-weight-bolder d-inline-block">User Email</h4>
+  </div>
+</div>
+
 <% @users.each do |user| %>
   <% name = user.fname + " " + user.lname %>
   <% path = users_path + "/" + user.id.to_s %>
-  <div class="row py-5">
-    <%= link_to name, path %>
+  <div class="row py-4">
+    <div class="col-md-6"><%= link_to name, path %></div>
+    <div class="col-md-6"><%= user.email %></div>
   </div>
 <% end %>
